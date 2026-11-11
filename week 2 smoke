@@ -1,0 +1,24 @@
+const int SMOKE_PIN = A0;
+const int t_value = 400;
+
+void setup() {
+  pinMode(SMOKE_PIN, INPUT);
+  Serial.begin(9600);
+  delay(1000);
+  Serial.println("SMOKE DETECTION SYSTEM");
+}
+
+void loop() {
+  int smoke = analogRead(SMOKE_PIN);
+
+  if (smoke > t_value) {
+    Serial.print("SMOKE DETECTED: ");
+    Serial.println(smoke);
+  }
+  else {
+    Serial.print("NO SMOKE: ");
+    Serial.println(smoke);
+  }
+
+  delay(1000);
+}
